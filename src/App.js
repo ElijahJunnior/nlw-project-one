@@ -1,6 +1,14 @@
+import ContaClick from './ContaClick';
+import Footer from './Footer';
+import Header from './Header';
+
 function App() {
   return (
-    <h1> Hello World </h1>
+    <div style={{ 'width': '920px', 'margin': '0 auto', 'padding': '20px', 'background-color': '#fff' }}>
+      <Header />
+      <ContaClick />
+      <Footer text_color='#aaa' >Elias Junior</Footer>
+    </div>
   );
 }
 
