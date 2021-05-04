@@ -1,4 +1,4 @@
-import Header from './Header';
+import Header from '../components/Header';
 import ContaClick from './ContaClick';
 import Footer from './Footer';
 
