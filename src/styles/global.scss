@@ -28,6 +28,7 @@
     html {
         // O tamanho padrão da fonte é 16px, reduzindo para 93,57% a fonte ficara com 15px;
         font-size: 93.75%;
+
     }
 }
 
@@ -36,6 +37,10 @@
         // O tamanho padrão da fonte é 16px, reduzindo para 87,5% a fonte ficara com 14px;
         font-size: 87.5%;
     }
+}
+
+html {
+    background: var(--gray-50);
 }
 
 // definindo um parametros de formatação de texto para todos aos itens de texto

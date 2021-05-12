@@ -1,3 +1,22 @@
 .headerContainer {
-    background-color: red;
+    display: flex;
+    height: 6.5rem;
+    padding: 2rem;
+    align-items: center;
+    border-bottom: 1px solid var(--gray-100);
+    background: var(--white);
+    color: var(--gray-200);
+
+    p {
+        margin-left: 2rem;
+        padding-left: 2rem;
+        border-left: 1px solid var(--gray-100);
+    }
+
+    span {
+        margin-left: auto;
+        text-transform: capitalize;
+    }
+
 }
+

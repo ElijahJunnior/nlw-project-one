@@ -6,7 +6,7 @@ export default function Header() {
             <img src="/logo.svg" />
             <div> </div>
             <p> O melhor para você ouvir, Sempre! </p>
-            <span> Qui, 8 Abril </span>
+            <span> Qui, 8 abril </span>
         </header >
     )
 }
