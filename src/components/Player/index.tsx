@@ -1,6 +1,46 @@
 import styles from './styles.module.scss';
 export default function Player() {
     return (
-        <div className={styles.container}></div>
+        <div className={styles.container}>
+
+            <header>
+                <img src="/playing.svg" alt="Tocando Agora" />
+                <strong> Tocando Agora </strong>
+            </header>
+
+            <div className={styles.emptyPlayer}>
+                <strong>Selecione um podcast para ouvir</strong>
+            </div>
+
+            <footer className={styles.empty}>
+                <div className={styles.progress}>
+                    {/* Slider Area */}
+                    <span>00:00</span>
+                    <div className={styles.slider}>
+                        <div className={styles.emptySlider} />
+                    </div>
+                    <span>00:00</span>
+                    {/* Button Area */}
+                    <div className={styles.buttom}>
+                        <button type="button">
+                            <img src="/shuffle.svg" alt="Embaralhar" />
+                        </button>
+                        <button type="button">
+                            <img src="/play-previous.svg" alt="Tocar Anterior" />
+                        </button>
+                        <button type="button" className={styles.playButton}>
+                            <img src="/play.svg" alt="Tocar" />
+                        </button>
+                        <button type="button">
+                            <img src="/play-next.svg" alt="Tocar Próxima" />
+                        </button>
+                        <button type="button">
+                            <img src="/repeat.svg" alt="Repetir" />
+                        </button>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
     )
 }
