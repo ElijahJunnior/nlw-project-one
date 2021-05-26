@@ -13,34 +13,33 @@ export default function Player() {
             </div>
 
             <footer className={styles.empty}>
+                {/* Slider Area */}
                 <div className={styles.progress}>
-                    {/* Slider Area */}
                     <span>00:00</span>
                     <div className={styles.slider}>
                         <div className={styles.emptySlider} />
                     </div>
                     <span>00:00</span>
-                    {/* Button Area */}
-                    <div className={styles.buttom}>
-                        <button type="button">
-                            <img src="/shuffle.svg" alt="Embaralhar" />
-                        </button>
-                        <button type="button">
-                            <img src="/play-previous.svg" alt="Tocar Anterior" />
-                        </button>
-                        <button type="button" className={styles.playButton}>
-                            <img src="/play.svg" alt="Tocar" />
-                        </button>
-                        <button type="button">
-                            <img src="/play-next.svg" alt="Tocar Próxima" />
-                        </button>
-                        <button type="button">
-                            <img src="/repeat.svg" alt="Repetir" />
-                        </button>
-                    </div>
+                </div>
+                {/* Button Area */}
+                <div className={styles.button}>
+                    <button type="button">
+                        <img src="/shuffle.svg" alt="Embaralhar" />
+                    </button>
+                    <button type="button">
+                        <img src="/play-previous.svg" alt="Tocar Anterior" />
+                    </button>
+                    <button type="button" className={styles.playButton}>
+                        <img src="/play.svg" alt="Tocar" />
+                    </button>
+                    <button type="button">
+                        <img src="/play-next.svg" alt="Tocar Próxima" />
+                    </button>
+                    <button type="button">
+                        <img src="/repeat.svg" alt="Repetir" />
+                    </button>
                 </div>
             </footer>
-
         </div>
     )
 }

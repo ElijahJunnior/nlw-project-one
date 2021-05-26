@@ -6,4 +6,11 @@
         flex: 1;
     }
 
+    .appContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
+
+

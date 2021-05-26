@@ -10,7 +10,7 @@ import Player from '../components/Player';
 function MyApp({ Component, pageProps }) {
   return (
     <div className={styles.wrapper}>
-      <main >
+      <main className={styles.appContainer}>
         <Header />
         <Component {...pageProps} />
         <Footer />
