@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next'
+import { GetStaticProps, GetServerSideProps } from 'next'
 
 type Episode = {
   id: string,
@@ -29,16 +29,16 @@ export default function Home(props: HomeProps) {
       </div>
     </div>
   )
+
 }
 
-export const getstaticProps: GetStaticProps = async () => {
-  const response = await fetch('http://localhost:3333/episodes');
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await fetch('http://localhost:3333/episodes?_limit=12&_sort=published_at&_order=asc');
   const data = await response.json();
   return {
     props: {
       episodes: data,
     },
-    revalidate: 60 * 60 * 8,
   }
 }
 
