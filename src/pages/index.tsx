@@ -1,8 +1,10 @@
-import { GetStaticProps, GetServerSideProps } from 'next'
+import { GetStaticProps, GetServerSideProps } from 'next';
+import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { api } from '../services/api'
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
+import styles from './home.module.scss';
 
 type Episode = {
   id: string,
@@ -17,21 +19,42 @@ type Episode = {
 }
 
 type HomeProps = {
-  episodes: Episode[],
+  latestEpisodes: Episode[],
+  allEpisodes: Episode[],
 }
 
-export default function Home(props: HomeProps) {
-
-  console.log(props.episodes)
-
+export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   return (
-    <div>
-      <div className="ContentGeneral">
-        <p> {JSON.stringify(props.episodes)} </p>
-      </div>
+    <div className={styles.homePage}>
+      <section className={styles.latestEpisodes}>
+        <h2> Últimos lançamentos</h2>
+        <ul>
+          {latestEpisodes.map(episode => {
+            return (
+              <li key={episode.id}>
+                <Image
+                  width={192} height={192} objectFit='cover'
+                  src={episode.thumbnail} alt={episode.title}
+                />
+                <div className={styles.episodeDetails}>
+                  <a href="">{episode.title}</a>
+                  <p> {episode.members} </p>
+                  <span> {episode.publishedAt} </span>
+                  <span> {episode.durationAsString} </span>
+                </div>
+                <button>
+                  <img src='/play-green.svg' alt='Tocar episódio'></img>
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+      <section className={styles.allEpisodes}>
+
+      </section>
     </div>
   )
-
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -39,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     params: {
       _limit: 12,
       _sort: 'published_at',
-      _order: 'asc',
+      _order: 'desc',
     }
   });
   const episodes = data.map(episode => {
@@ -55,9 +78,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
       url: episode.file.url,
     }
   })
+  const latestEpisodes = episodes.slice(0, 2);
+  const allEpisodes = episodes.slice(2, episodes.length);
+  //const latestEpisodes = episodes;
+  //const allEpisodes = episodes;
   return {
     props: {
-      episodes,
+      latestEpisodes,
+      allEpisodes
     },
   }
 }
