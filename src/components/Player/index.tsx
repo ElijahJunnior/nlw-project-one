@@ -1,5 +1,11 @@
 import styles from './styles.module.scss';
+import { useContext } from 'react';
+import { PlayerContext } from '../../contexts/PlayerContext'
+
 export default function Player() {
+
+    const player = useContext(PlayerContext);
+
     return (
         <div className={styles.container}>
 
