@@ -6,12 +6,14 @@ export default function Player() {
 
     const player = useContext(PlayerContext);
 
+    const episode = player.episodeList[player.currentEpisodeIndex]
+
     return (
         <div className={styles.container}>
 
             <header>
                 <img src="/playing.svg" alt="Tocando Agora" />
-                <strong> Tocando Agora </strong>
+                <strong> Tocando Agora: {episode?.title} </strong>
             </header>
 
             <div className={styles.emptyPlayer}>

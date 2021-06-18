@@ -51,7 +51,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   <span> {episode.publishedAt} </span>
                   <span> {episode.durationAsString} </span>
                 </div>
-                <button>
+                <button onClick={() => player.play(episode)}>
                   <img src='/play-green.svg' alt='Tocar episódio'></img>
                 </button>
               </li>
